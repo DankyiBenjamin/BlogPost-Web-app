@@ -1,0 +1,61 @@
+// for creating a new project use
+django-admin startproject projectname
+
+// for creating a new app use
+python manage.py startapp appname
+
+The main idea behind the work
+
+Blog Application*
+
+### Features:
+1.⁠ ⁠*User Authentication*: 
+   - Users can sign up, log in, and log out.
+   - Only logged-in users can create and edit posts.
+   
+2.⁠ ⁠*Blog Post Management*:
+   - Create, read, update, and delete blog posts (CRUD operations).
+   - Posts should have a title, body, author, and published date.
+   
+3.⁠ ⁠*Post Listing*:
+   - Display a list of all posts on the homepage, ordered by the published date (latest first).
+   - Each post title links to a detailed view of that post.
+   
+4.⁠ ⁠*Post Detail View*:
+   - Show the full post with the title, author, body, and published date.
+   ++ this can be achieved by comnbing the 2 db tables in the details page and getting the user of that post and what he wrote
+
+5.⁠ ⁠*Post Creation*:
+   - Logged-in users can create new blog posts.
+
+6.⁠ ⁠*Post Editing & Deleting*:
+   - Authors can edit or delete their own posts.
+
+### Extra Features:
+•⁠  ⁠Add categories or tags for each post.
+•⁠  ⁠Add a simple comment section.
+
+// database Creation
+user_details
+    primary Key
+    user_name
+    email
+    password
+    date of birth
+Blog_post
+    primary Key
+    title
+    details
+    ++ the auto_now_add can be use to automatically populate the db
+    date created
+    date_updated
+    foreign Key (user)
+// Change your models (in models.py).
+// Run python manage.py makemigrations to create migrations for those changes
+// Run python manage.py migrate to apply those changes to the database.
+
+addmin for the blog post
+
+email : ben@blogpost.com
+user_name: admin
+password : admin

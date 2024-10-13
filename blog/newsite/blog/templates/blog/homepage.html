@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HomePage</title>
+  </head>
+  <body>
+    <!-- verifying login and logout details -->
+    {%if user.is_authenticated%}
+    <p>Welcome, {{user.username}}</p>
+    <p style="text-align: right; text-decoration: none">
+      <a href="{% url 'blog:new_blog' %}">Create Blog</a>
+    </p>
+    <p><a href="{% url 'blog:logout' %}">Logout </a></p>
+    {%else%}
+    <p><a href="{% url 'blog:login' %}">Login Here</a></p>
+
+    {% endif %}
+    <!-- this is the blog post -->
+    {%if latest_blog_list%}
+    <ul>
+      {% for blogpost in latest_blog_list%}
+      <div class="blog_post">
+        <li>
+          <a href="{%url 'blog:details' blogpost.id%}">{{blogpost.title}}</a>
+        </li>
+      </div>
+
+      {%endfor%}
+    </ul>
+    {%else%}
+    <p>No Blog Post Available</p>
+  </body>
+  {%endif%}
+</html>
